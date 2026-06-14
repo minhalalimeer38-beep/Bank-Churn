@@ -66,7 +66,7 @@ Steps performed:
 
 The neural network consists of:
 
-* Input          : 11
+* Input Features : 11
 * Hidden Layer 1 : 20 neurons (ReLU)
 * Hidden Layer 2 : 10 neurons (ReLU)
 * Hidden Layer 3 : 5 neurons (ReLU)
