@@ -2,40 +2,43 @@
 
 ## 📌 Project Overview
 
-This project predicts whether a bank customer will churn (leave the bank) or not using an Artificial Neural Network (ANN). The model is trained on customer data and uses classification techniques to identify churn behavior.
+This project predicts whether a bank customer will churn (leave the bank) or not using an Artificial Neural Network (ANN). The model is trained on customer demographic and financial data to classify churn behavior and help banks improve customer retention strategies.
 
 ---
 
 ## 🎯 Objective
 
-The main goal of this project is to:
+The main objectives of this project are:
 
-* Analyze customer data
-* Preprocess and prepare features
-* Build an ANN model
-* Predict customer churn
+* Analyze customer demographic and financial data
+* Perform data preprocessing (encoding and scaling)
+* Build and train an Artificial Neural Network (ANN) model
+* Predict customer churn (binary classification)
 * Evaluate model performance using classification metrics
 
 ---
 
-## 📁 Dataset
+## 📁 Dataset Description
 
-The dataset contains bank customer information such as:
+The dataset contains bank customer information:
 
+* Credit Score
 * Country
 * Gender
 * Age
-* Balance
-* Credit Score
-* Estimated Salary
 * Tenure
-* Products Number
-* Active Member
-* Credit Card
+* Balance
+* Number of Products
+* Credit Card Status
+* Active Member Status
+* Estimated Salary
 
-Target variable:
+### 🎯 Target Variable:
 
-* `churn` (0 = No churn, 1 = Churn)
+* **Churn**
+
+  * 0 → Customer stays
+  * 1 → Customer leaves (churn)
 
 ---
 
@@ -52,36 +55,39 @@ Target variable:
 
 ## 🧹 Data Preprocessing
 
-Steps performed:
+The following preprocessing steps were applied:
 
-* Removed unnecessary column (`customer_id`)
-* Checked missing values and duplicates
-* One-Hot Encoding for categorical variables
-* Standard Scaling for numerical features
-* Combined features into final dataset
+* Removed irrelevant column (`customer_id`)
+* Identified categorical and numerical features
+* Applied **One-Hot Encoding** for categorical variables
+* Applied **Standard Scaling** for numerical features
+* Combined processed features into final dataset
+* Performed **train-test split before preprocessing** to avoid data leakage
 
 ---
 
 ## 🧠 Model Architecture (ANN)
 
-The neural network consists of:
+The Artificial Neural Network consists of:
 
-* Input Features : 11
-* Hidden Layer 1 : 20 neurons (ReLU)
-* Hidden Layer 2 : 10 neurons (ReLU)
-* Hidden Layer 3 : 5 neurons (ReLU)
-* Output Layer   : 1 neuron (Sigmoid)
+* Input Layer: Based on transformed feature size
+* Hidden Layer 1: 20 neurons (ReLU activation)
+* Hidden Layer 2: 10 neurons (ReLU activation)
+* Hidden Layer 3: 5 neurons (ReLU activation)
+* Output Layer: 1 neuron (Sigmoid activation)
 
-Loss Function    : Binary Crossentropy
-Optimizer        : Adam
-Epochs           : 100
-Batch Size       : 10
+### ⚙️ Training Configuration:
+
+* Loss Function: Binary Crossentropy
+* Optimizer: Adam
+* Epochs: 100
+* Batch Size: 10
 
 ---
 
 ## 📊 Evaluation Metrics
 
-The model is evaluated using:
+The model was evaluated using:
 
 * Accuracy
 * Precision
@@ -89,31 +95,49 @@ The model is evaluated using:
 * F1-score
 * Classification Report
 
-A threshold of **0.3** was used for classification to improve recall.
+A threshold of **0.5** was used for classification.
 
 ---
 
 ## 📈 Results
 
-* Accuracy            : 0.827 (82.7%)
-* Precision (Class 1) : 0.55
-* Recall (Class 1)    : 0.65
-* F1-Score (Class 1)  : 0.60
+* **Accuracy:** ~85%
+* **Precision (Class 1):** ~0.66
+* **Recall (Class 1):** ~0.50
+* **F1-Score (Class 1):** ~0.57
 
-Model performs well on binary classification with balanced evaluation metrics.
+### 📌 Class-wise Performance:
+
+| Class        | Precision | Recall | F1-score |
+| ------------ | --------- | ------ | -------- |
+| 0 (No Churn) | 0.89      | 0.94   | 0.91     |
+| 1 (Churn)    | 0.66      | 0.50   | 0.57     |
 
 ---
 
 ## 📌 Key Learnings
 
-* Data preprocessing for ML models
-* One-hot encoding & feature scaling
+* Data preprocessing for neural networks
+* One-Hot Encoding and feature scaling
+* Importance of avoiding data leakage
 * Building ANN using Keras
-* Model evaluation using classification metrics
-* Effect of threshold tuning on precision/recall tradeoff
+* Model evaluation using precision, recall, and F1-score
+* Understanding classification trade-offs
 
 ---
 
-## 📌 Note
+## ⚠️ Future Improvements
 
-This is a beginner-friendly machine learning project built for learning and academic purposes.
+* Hyperparameter tuning (layers, neurons, learning rate)
+* Handling class imbalance (SMOTE / class weights)
+* Trying different ML models (Random Forest, XGBoost)
+* Model deployment using Streamlit or Flask
+* Feature selection for better performance
+
+---
+
+## 📌 Conclusion
+
+This project demonstrates a complete machine learning pipeline for churn prediction using an ANN. The model achieves good performance and provides a strong foundation for further optimization and deployment.
+
+---
